@@ -34,14 +34,3 @@ if(!url){alert('أدخل رابط!');return}
 res.style.display='block';
 let score=0; let reasons=[];
 if(url.length>75){score+=2;reasons.push('رابط طويل');}
-if(url.includes('@')){score+=3;reasons.push('يحتوي @');}
-if(url.match(/^https?:\/\/\d+\.\d+\.\d+\.\d+/)){score+=3;reasons.push('IP بدل دومين');}
-if(!url.startsWith('https')){score+=2;reasons.push('بدون HTTPS');}
-if(url.includes('bit.ly')||url.includes('tinyurl')){score+=2;reasons.push('رابط مختصر');}
-if(score>=5){res.className='danger';res.innerHTML='❌ خطير - تصيد!<br><small>'+reasons.join(' - ')+'</small>';}
-else if(score>=2){res.className='warn';res.innerHTML='⚠️ مشبوه!<br><small>'+reasons.join(' - ')+'</small>';}
-else{res.className='safe';res.innerHTML='✅ آمن نسبياً';}
-}
-</script>
-</body>
-</html>
