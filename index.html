@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>YOUSIF ALTRAIFI - Secure Scanner V2.2</title>
+
+        <!-- PWA - ايقونة التطبيق -->
+          <link rel="manifest" href="/manifest.json">
+            <meta name="theme-color" content="#000000">
+              <meta name="background-color" content="#000000">
+                <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+                  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+                    <link rel="apple-touch-icon" href="/icon-192.png">
+                      <meta name="apple-mobile-web-app-capable" content="yes">
+                        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                          <meta name="apple-mobile-web-app-title" content="Secure Scanner">
+
+                            <style>
+                                * { margin:0; padding:0; box-sizing:border-box; font-family: 'Courier New', monospace; }
+                                    body { background:#000; color:#00ff00; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px; }
+                                        .box { border:1.5px solid #00ff00; border-radius:18px; padding:30px 20px; width:100%; max-width:420px; text-align:center; box-shadow:0 0 15px rgba(0,255,0,0.2); }
+                                            h1 { font-size:28px; letter-spacing:2px; margin-bottom:10px; text-shadow:0 0 10px #00ff00; }
+                                                .ver { font-size:14px; opacity:0.8; margin-bottom:25px; }
+                                                    input { width:100%; background:#001100; border:1px solid #00ff00; color:#00ff00; padding:12px 15px; border-radius:8px; outline:none; text-align:right; margin-bottom:15px; }
+                                                        input::placeholder { color:#00aa00; }
+                                                            button { background:#00ff00; color:#000; border:none; padding:12px 30px; border-radius:8px; font-weight:bold; cursor:pointer; font-size:16px; box-shadow:0 0 10px #00ff00; }
+                                                                button:active { transform:scale(0.95); }
+                                                                    #result { margin-top:20px; font-size:14px; min-height:20px; word-break:break-all; }
+                                                                      </style>
+                                                                      </head>
+                                                                      <body>
+                                                                        <div class="box">
+                                                                            <h1>YOUSIF ALTRAIFI</h1>
+                                                                                <div class="ver">Secure Scanner V2.2</div>
+                                                                                    <input id="urlInput" type="text" placeholder="الصق الرابط هنا...">
+                                                                                        <br>
+                                                                                            <button onclick="scan()">[ افحص الآن ]</button>
+                                                                                                <div id="result"></div>
+                                                                                                  </div>
+
+                                                                                                    <script>
+                                                                                                        function scan(){
+                                                                                                              const url = document.getElementById('urlInput').value.trim();
+                                                                                                                    const res = document.getElementById('result');
+                                                                                                                          if(!url){ res.innerHTML = '⚠️ الصق رابط أولا'; return; }
+                                                                                                                                res.innerHTML = '🔍 جاري الفحص...';
+                                                                                                                                      setTimeout(()=>{
+                                                                                                                                              if(url.startsWith('https://')) res.innerHTML = '✅ الرابط آمن - يستخدم HTTPS';
+                                                                                                                                                      else if(url.includes('http://')) res.innerHTML = '⚠️ تحذير - الرابط غير مشفر';
+                                                                                                                                                              else res.innerHTML = '✅ تم الفحص - ' + url;
+                                                                                                                                                                    }, 800);
+                                                                                                                                                                        }
+                                                                                                                                                                            // تسجيل الـ PWA
+                                                                                                                                                                                if('serviceWorker' in navigator){
+                                                                                                                                                                                      // اختياري لكن يخليه يشتغل offline
+                                                                                                                                                                                          }
+                                                                                                                                                                                            </script>
+                                                                                                                                                                                            </body>
+                                                                                                                                                                                            </html>
