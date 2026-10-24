@@ -1,4 +1,5 @@
-# Phishing Detector
+ ![Phishing Detector Banner](./banner.png.jpg)
+ # Phishing Detector
 A simple & secure phishing link detection tool by Yousif Altraifi - Cybersecurity Student from Sudan
 
 ## About
