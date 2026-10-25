@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUSIF ALTRAIFI - Secure Scanner V2.3</title>
+<meta name="theme-color" content="#00ff00">
+<meta name="description" content="Secure Scanner by Yousif Altraifi - افحص الروابط المشبوهة">
+
+<!-- أيقونات باصدار جديد عشان كسر الكاش -->
+<link rel="icon" href="/icon-192.png?v=3">
+<link rel="apple-touch-icon" href="/icon-192.png?v=3">
+
+<script>
+// ننشئ manifest جديد جوا الصفحة عشان نتجاوز كاش كروم القديم
+const manifestData = {
+  "name": "YOUSIF ALTRAIFI V2.3 NEW",
+    "short_name": "Scanner V2.3",
+      "description": "Secure Scanner by Yousif Altraifi",
+        "start_url": "/?v=3",
+          "display": "standalone",
+            "background_color": "#000000",
+              "theme_color": "#00ff00",
+                "icons": [
+                    {
+                          "src": "/icon-192.png?v=3",
+                                "sizes": "192x192",
+                                      "type": "image/png",
+                                            "purpose": "any maskable"
+                                                },
+                                                    {
+                                                          "src": "/icon-512.png?v=3",
+                                                                "sizes": "512x512",
+                                                                      "type": "image/png",
+                                                                            "purpose": "any maskable"
+                                                                                }
+                                                                                  ]
+                                                                                  };
+                                                                                  const blob = new Blob([JSON.stringify(manifestData)], {type: 'application/json'});
+                                                                                  const manifestURL = URL.createObjectURL(blob);
+                                                                                  const link = document.createElement('link');
+                                                                                  link.rel = 'manifest';
+                                                                                  link.href = manifestURL;
+                                                                                  document.head.appendChild(link);
+                                                                                  </script>
+
+                                                                                  <style>
+                                                                                  * { box-sizing: border-box; }
+                                                                                  body {
+                                                                                    background: #000;
+                                                                                      color: #00ff00;
+                                                                                        font-family: 'Courier New', monospace;
+                                                                                          display: flex;
+                                                                                            justify-content: center;
+                                                                                              align-items: center;
+                                                                                                min-height: 100vh;
+                                                                                                  margin: 0;
+                                                                                                    padding: 20px;
+                                                                                                    }
+                                                                                                    .box {
+                                                                                                      border: 2px solid #00ff00;
+                                                                                                        padding: 30px 25px;
+                                                                                                          border-radius: 15px;
+                                                                                                            text-align: center;
+                                                                                                              box-shadow: 0 0 25px #00ff00;
+                                                                                                                width: 100%;
+                                                                                                                  max-width: 400px;
+                                                                                                                    background: #0a0a0a;
+                                                                                                                    }
+                                                                                                                    h2 { margin: 0; letter-spacing: 2px; text-shadow: 0 0 10px #00ff00; }
+                                                                                                                    .sub { font-size: 11px; opacity: 0.6; margin: 5px 0 20px 0; }
+                                                                                                                    input {
+                                                                                                                      background: #111;
+                                                                                                                        border: 1px solid #00ff00;
+                                                                                                                          color: #00ff00;
+                                                                                                                            padding: 12px;
+                                                                                                                              width: 100%;
+                                                                                                                                border-radius: 8px;
+                                                                                                                                  text-align: center;
+                                                                                                                                    outline: none;
+                                                                                                                                    }
+                                                                                                                                    input:focus { box-shadow: 0 0 10px #00ff00; }
+                                                                                                                                    button {
+                                                                                                                                      background: #00ff00;
+                                                                                                                                        color: #000;
+                                                                                                                                          border: none;
+                                                                                                                                            padding: 12px 25px;
+                                                                                                                                              margin-top: 15px;
+                                                                                                                                                border-radius: 8px;
+                                                                                                                                                  font-weight: bold;
+                                                                                                                                                    cursor: pointer;
+                                                                                                                                                      width: 100%;
+                                                                                                                                                        font-size: 16px;
+                                                                                                                                                        }
+                                                                                                                                                        button:hover { background: #00cc00; box-shadow: 0 0 15px #00ff00; }
+                                                                                                                                                        #res { margin-top: 18px; min-height: 25px; font-weight: bold; font-size: 14px; }
+                                                                                                                                                        .footer { margin-top: 20px; font-size: 10px; opacity: 0.4; }
+                                                                                                                                                        </style>
+                                                                                                                                                        </head>
+                                                                                                                                                        <body>
+                                                                                                                                                        <div class="box">
+                                                                                                                                                          <h2>YOUSIF ALTRAIFI</h2>
+                                                                                                                                                            <div class="sub">Secure Scanner V2.3 FINAL - by Yousif</div>
+                                                                                                                                                              
+                                                                                                                                                                <input id="url" placeholder="الصق الرابط المشبوه هنا...">
+                                                                                                                                                                  <button onclick="scan()">افحص الآن 🔍</button>
+                                                                                                                                                                    <div id="res"></div>
+                                                                                                                                                                      
+                                                                                                                                                                        <div class="footer">Made in Omdurman with 💚 | 2026</div>
+                                                                                                                                                                        </div>
+
+                                                                                                                                                                        <script>
+                                                                                                                                                                        function scan(){
+                                                                                                                                                                          let u = document.getElementById('url').value.trim();
+                                                                                                                                                                            let r = document.getElementById('res');
+                                                                                                                                                                              if(!u){
+                                                                                                                                                                                  r.innerHTML = '<span style="color:#ff0">❗ الصق رابط أولاً</span>';
+                                                                                                                                                                                      return;
+                                                                                                                                                                                        }
+                                                                                                                                                                                          let badWords = ['bit.ly','tinyurl','free-money','login-verify','secure-login','account-update','gift','prize','binance-giveaway'];
+                                                                                                                                                                                            let score = 0;
+                                                                                                                                                                                              badWords.forEach(w => { if(u.toLowerCase().includes(w)) score++; });
+                                                                                                                                                                                                if(u.length > 75) score++;
+                                                                                                                                                                                                  if((u.match(/\./g) || []).length > 4) score++;
+                                                                                                                                                                                                    if(u.includes('@') || u.includes('-')) score++;
+
+                                                                                                                                                                                                      if(score >= 2){
+                                                                                                                                                                                                          r.innerHTML = '<span style="color:#ff0000">🚨 خطير! رابط تصيد احتيالي - لا تفتحه</span>';
+                                                                                                                                                                                                            } else if(score == 1){
+                                                                                                                                                                                                                r.innerHTML = '<span style="color:orange">⚠️ مشبوه - تأكد قبل الفتح</span>';
+                                                                                                                                                                                                                  } else {
+                                                                                                                                                                                                                      r.innerHTML = '<span style="color:#00ff00">✅ يبدو آمن</span>';
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                        </script>
+                                                                                                                                                                                                                        </body>
+                                                                                                                                                                                                                        </html>
